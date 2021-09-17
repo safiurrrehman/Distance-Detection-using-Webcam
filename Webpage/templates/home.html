@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Welcome</h1>
+    <form action="{{ url_for('add')}}">
+        <label for="first">Full Name</label>
+        <input type="text" name="first">
+        <label for="last">Roll Number</label>
+        <input type="text" name="last">
+        <input type="submit" value="Submit">
+    </form>
+
+    <form style="margin: 10px;" action="{{ url_for('detect_on')}}">
+        <input type="submit" value="Detection On">
+    </form>
+    
+    <form style="margin: 10px;" action="{{ url_for('detect_off')}}">
+        <input type="submit" value="Detection Off">
+    </form>
+
+    <div>
+        <span style="font-size: 2rem; ">Name</span> <span style="font-size: 2rem;">Roll No</span><br>
+        <span style="font-size: 2rem;">{{name}}</span> <span style="font-size: 2rem;">{{roll}}</span>
+    </div>
+    <div>
+        <form style="margin: 10px;" action="{{ url_for('next')}}">
+            <input type="submit" value="Next">
+        </form>
+        <form style="margin: 10px;" action="{{ url_for('prev')}}">
+            <input type="submit" value="Previous">
+        </form>
+    </div>
+</div>
+{% endblock %}
